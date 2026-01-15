@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:tasky/core/services/preferences_manager.dart';
 import '../../model/task_model.dart';
-import '../../widgets/task_list_widget.dart';
+import '../../core/components/task_list_widget.dart';
 
 class CompleteTasksScreen extends StatefulWidget {
   const CompleteTasksScreen({super.key});

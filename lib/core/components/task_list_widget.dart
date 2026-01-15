@@ -6,8 +6,8 @@ import 'package:tasky/core/theme/theme_controller.dart';
 import 'package:tasky/core/widgets/custom_check_box.dart';
 import 'package:tasky/core/widgets/custom_text_form_field.dart';
 
-import '../core/services/preferences_manager.dart';
-import '../model/task_model.dart';
+import '../services/preferences_manager.dart';
+import '../../model/task_model.dart';
 
 class TaskListWidget extends StatelessWidget {
   const TaskListWidget({

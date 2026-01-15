@@ -49,19 +49,19 @@ class _HomeScreenState extends State<HomeScreen> {
     ); // ما ينفع تخلي الدالة داخل setState تكون async ولا تخلي setState نفسها async.
     /* لماذا لا يجوز أن تكون setState async ؟
 
-    لأن:
+                    لأن:
 
-    setState لازم تنفّذ فورًا وبسرعة
+                    setState لازم تنفّذ فورًا وبسرعة
 
-    وهي مسؤولة عن إعادة بناء الواجهة
+                    وهي مسؤولة عن إعادة بناء الواجهة
 
-    ولو كانت async ستُرجع Future وليس void
+                    ولو كانت async ستُرجع Future وليس void
 
-    وهذا يخالف تصميم Flutter
+                    وهذا يخالف تصميم Flutter
 
-    كما أن Flutter وثّق ذلك صراحة:
+                    كما أن Flutter وثّق ذلك صراحة:
 
-    لا تجعل callback الخاص بـ setState async */
+                    لا تجعل callback الخاص بـ setState async */
   }
 
   void _loadTask() async {
@@ -85,8 +85,8 @@ class _HomeScreenState extends State<HomeScreen> {
     }
 
     /*setState(() {
-      isLoading = false;
-    });*/
+                      isLoading = false;
+                    });*/
   }
 
   _calculatePercent() {
@@ -178,19 +178,19 @@ class _HomeScreenState extends State<HomeScreen> {
                           "Good Evening ,$username ",
                           style: Theme.of(context).textTheme.titleMedium,
                           /*TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 16,
-                            color: Color(0xFFFFFCFC),
-                          ),*/
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 16,
+                                            color: Color(0xFFFFFCFC),
+                                          ),*/
                         ),
                         Text(
                           "One task at a time.One step closer.",
                           style: Theme.of(context).textTheme.titleSmall,
                           /*TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                            color: Color(0xFFC6C6C6),
-                          ),*/
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 14,
+                                            color: Color(0xFFC6C6C6),
+                                          ),*/
                         ),
                       ],
                     ),
@@ -205,11 +205,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       "Yuhuu ,Your work Is ",
                       style: Theme.of(context).textTheme.displayLarge,
                       /*TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 32,
-                        color: Color(0xFFFFFCFC),
-                        wordSpacing: 0.5,
-                      ),*/
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 32,
+                                        color: Color(0xFFFFFCFC),
+                                        wordSpacing: 0.5,
+                                      ),*/
                     ),
                     Row(
                       children: [
@@ -226,8 +226,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 32,
                           ),
                           /*SvgPicture.asset(
-                            "assets/images/waving-hand.svg",
-                          ),*/
+                                            "assets/images/waving-hand.svg",
+                                          ),*/
                         ),
                       ],
                     ),
@@ -284,115 +284,115 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 /*SingleChildScrollView(
-        //padding: EdgeInsets.all(16),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage("assets/images/joe.jpg"),
-                  radius: 28,
-                ),
-                SizedBox(width: 8),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Good Evening ,$name ",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 16,
-                        color: Color(0xFFFFFCFC),
-                      ),
-                    ),
-                    Text(
-                      "One task at a time.One step\ncloser.",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                        color: Color(0xFFC6C6C6),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(height: 16),
+                        //padding: EdgeInsets.all(16),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                CircleAvatar(
+                                  backgroundImage: AssetImage("assets/images/joe.jpg"),
+                                  radius: 28,
+                                ),
+                                SizedBox(width: 8),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Good Evening ,$name ",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 16,
+                                        color: Color(0xFFFFFCFC),
+                                      ),
+                                    ),
+                                    Text(
+                                      "One task at a time.One step\ncloser.",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 14,
+                                        color: Color(0xFFC6C6C6),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 16),
 
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Yuhuu ,Your work Is ",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 32,
-                    color: Color(0xFFFFFCFC),
-                    wordSpacing: 0.5,
-                  ),
-                ),
-                Row(
-                  children: [
-                    Text(
-                      "almost done ! ",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 32,
-                        color: Color(0xFFFFFCFC),
-                        wordSpacing: 0.5,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 32,
-                      //height: 32,
-                      child: SvgPicture.asset("assets/images/waving-hand.svg"),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 16),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Yuhuu ,Your work Is ",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 32,
+                                    color: Color(0xFFFFFCFC),
+                                    wordSpacing: 0.5,
+                                  ),
+                                ),
+                                Row(
+                                  children: [
+                                    Text(
+                                      "almost done ! ",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 32,
+                                        color: Color(0xFFFFFCFC),
+                                        wordSpacing: 0.5,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 32,
+                                      //height: 32,
+                                      child: SvgPicture.asset("assets/images/waving-hand.svg"),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 16),
 
-                AchievedTasks(
-                  totalTasks: totalTasks,
-                  totalDoneTask: totalDoneTask,
-                  percent: percent,
-                ),
-                SizedBox(height: 8),
-                HighPriorityTasksWidget(
-                  tasks: tasks,
-                  onTap: (bool? value, int? index) {
-                    _doneTask(value, index);
-                  },
-                  refresh: () {
-                    _loadTask();
-                  },
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 24, bottom: 16),
-                  child: Text(
-                    "My Tasks",
-                    style: TextStyle(
-                      color: Color(0xFFFFFCFC),
-                      fontWeight: FontWeight.w400,
-                      fontSize: 20,
-                      letterSpacing: 0.5,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            isLoading
-                ? Center(
-                    child: CircularProgressIndicator(
-                      color: Colors.white,
-                      value: 20,
-                    ),
-                  )
-                : TaskListWidget(
-                    tasks: tasks,
-                    onTap: (bool? value, int? index) {
-                      _doneTask(value, index);
-                    },
-                  ),
-          ],
-        ),
-      ),*/
+                                AchievedTasks(
+                                  totalTasks: totalTasks,
+                                  totalDoneTask: totalDoneTask,
+                                  percent: percent,
+                                ),
+                                SizedBox(height: 8),
+                                HighPriorityTasksWidget(
+                                  tasks: tasks,
+                                  onTap: (bool? value, int? index) {
+                                    _doneTask(value, index);
+                                  },
+                                  refresh: () {
+                                    _loadTask();
+                                  },
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 24, bottom: 16),
+                                  child: Text(
+                                    "My Tasks",
+                                    style: TextStyle(
+                                      color: Color(0xFFFFFCFC),
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 20,
+                                      letterSpacing: 0.5,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            isLoading
+                                ? Center(
+                                    child: CircularProgressIndicator(
+                                      color: Colors.white,
+                                      value: 20,
+                                    ),
+                                  )
+                                : TaskListWidget(
+                                    tasks: tasks,
+                                    onTap: (bool? value, int? index) {
+                                      _doneTask(value, index);
+                                    },
+                                  ),
+                          ],
+                        ),
+                      ),*/

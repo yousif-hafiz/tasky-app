@@ -5,6 +5,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tasky/core/constans/storage_key.dart';
 import 'package:tasky/core/services/preferences_manager.dart';
 import 'package:tasky/core/theme/theme_controller.dart';
 import 'package:tasky/core/widgets/custom_svg_picture.dart';
@@ -43,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void _loadUserName() async {
     setState(
       () {
-        username = PreferencesManager().getString('username');
+        username = PreferencesManager().getString(StorageKey.username);
         userImagePath = PreferencesManager().getString('user_image');
       },
     ); // ما ينفع تخلي الدالة داخل setState تكون async ولا تخلي setState نفسها async.

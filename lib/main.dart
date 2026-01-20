@@ -6,11 +6,13 @@ import 'package:tasky/core/theme/theme_controller.dart';
 import 'package:tasky/features/navigation/main_screen.dart';
 import 'package:tasky/features/welcome/welcome_screen.dart';
 
+import 'core/constans/storage_key.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await PreferencesManager().init();
   ThemeController().init();
-  String? username = PreferencesManager().getString("username");
+  String? username = PreferencesManager().getString(StorageKey.username);
   /*final asyncPrefs = SharedPreferencesAsync();
   String? username = await asyncPrefs.getString("username");*/
   //asyncPrefs.clear();

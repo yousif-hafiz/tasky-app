@@ -1,14 +1,12 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:tasky/core/constans/storage_key.dart';
 import 'package:tasky/core/services/preferences_manager.dart';
 import 'package:tasky/core/theme/theme_controller.dart';
 import 'package:tasky/core/widgets/custom_svg_picture.dart';
-import 'package:tasky/main.dart';
 import 'package:tasky/features/welcome/welcome_screen.dart';
 
 import 'user_details_screen.dart';
@@ -36,11 +34,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   void _loadData() async {
     setState(() {
-      username = PreferencesManager().getString('StorageKey.username') ?? '';
+      username = PreferencesManager().getString(StorageKey.username) ?? '';
       motivationQuote =
-          PreferencesManager().getString('motivation_quote') ??
+          PreferencesManager().getString(StorageKey.motivationQuote) ??
           "One task at a time. One step closer.";
-      userImagePath = PreferencesManager().getString("user_image");
+      userImagePath = PreferencesManager().getString(StorageKey.userImage);
       isLoading = false;
     });
   }
@@ -194,8 +192,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 onTap: () {
                   /// TODO LOG OUT
                   PreferencesManager().remove(StorageKey.username);
-                  PreferencesManager().remove("motivation_quote");
-                  PreferencesManager().remove("tasks");
+                  PreferencesManager().remove(StorageKey.motivationQuote);
+                  PreferencesManager().remove(StorageKey.tasks);
                   Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(builder: (context) => WelcomeScreen()),
@@ -225,7 +223,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     // print(await getApplicationDocumentsDirectory());
     final appDir = await getApplicationDocumentsDirectory();
     final newFile = await File(file.path).copy('${appDir.path}/${file.name}');
-    PreferencesManager().setString("user_image", newFile.path);
+    PreferencesManager().setString(StorageKey.userImage, newFile.path);
     // print('${appDir.path}');
     // print('${file.path}');
     // print('${file.name}');

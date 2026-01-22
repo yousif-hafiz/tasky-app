@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:tasky/core/constans/storage_key.dart';
 
 import 'package:tasky/core/services/preferences_manager.dart';
 import '../../model/task_model.dart';
@@ -68,7 +69,7 @@ class _CompleteTasksScreenState extends State<CompleteTasksScreen> {
     final updatedTask = completeTasks
         .map((element) => element.toJson())
         .toList();
-    PreferencesManager().setString("tasks", jsonEncode(updatedTask));
+    PreferencesManager().setString(StorageKey.tasks, jsonEncode(updatedTask));
   }
 
   @override
@@ -94,7 +95,7 @@ class _CompleteTasksScreenState extends State<CompleteTasksScreen> {
                         completeTasks[index!].isDone = value ?? false;
                       });
 
-                      final allData = PreferencesManager().getString("tasks");
+                      final allData = PreferencesManager().getString(StorageKey.tasks);
 
                       if (allData != null) {
                         List<TaskModel> allDataList =

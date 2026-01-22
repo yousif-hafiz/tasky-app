@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:tasky/core/services/preferences_manager.dart';
 
+import '../../core/constans/storage_key.dart';
 import '../../model/task_model.dart';
 import '../../core/components/task_list_widget.dart';
 
@@ -27,7 +28,7 @@ class _TasksScreenState extends State<TasksScreen> {
   void _loadTask() async {
     setState(() => isLoading = true);
     try {
-      final finalTask = PreferencesManager().getString("tasks");
+      final finalTask = PreferencesManager().getString(StorageKey.tasks);
       if (finalTask != null) {
         final taskAfterDecode = jsonDecode(finalTask) as List<dynamic>;
         setState(() {
@@ -56,7 +57,7 @@ class _TasksScreenState extends State<TasksScreen> {
       todoTasks.removeWhere((tasks) => tasks.id == id);
     });
     final updatedTask = todoTasks.map((element) => element.toJson()).toList();
-    PreferencesManager().setString("tasks", jsonEncode(updatedTask));
+    PreferencesManager().setString(StorageKey.tasks, jsonEncode(updatedTask));
   }
 
   @override
@@ -83,7 +84,7 @@ class _TasksScreenState extends State<TasksScreen> {
                     setState(() {
                       todoTasks[index!].isDone = value ?? false;
                     });
-                    final allData = PreferencesManager().getString("tasks");
+                    final allData = PreferencesManager().getString(StorageKey.tasks);
                     if (allData != null) {
                       List<TaskModel> allDataList =
                           (jsonDecode(allData) as List)
@@ -94,7 +95,7 @@ class _TasksScreenState extends State<TasksScreen> {
                       );
                       allDataList[newIndex] = todoTasks[index!];
                       PreferencesManager().setString(
-                        "tasks",
+                        StorageKey.tasks,
                         jsonEncode(allDataList),
                       );
                       _loadTask();

@@ -5,6 +5,8 @@ import 'package:tasky/core/services/preferences_manager.dart';
 import 'package:tasky/core/widgets/custom_text_form_field.dart';
 import 'package:tasky/model/task_model.dart';
 
+import '../../core/constans/storage_key.dart';
+
 class AddTaskScreen extends StatefulWidget {
   const AddTaskScreen({super.key});
 
@@ -40,7 +42,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
         child: ElevatedButton.icon(
           onPressed: () async {
             if (_key.currentState?.validate() ?? false) {
-              final taskJson = PreferencesManager().getString('tasks');
+              final taskJson = PreferencesManager().getString(StorageKey.tasks);
               List<dynamic> listTasks = [];
               if (taskJson != null) {
                 listTasks = jsonDecode(taskJson);
@@ -54,7 +56,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
 
               listTasks.add(taskModel.toJson());
               final taskEncode = jsonEncode(listTasks);
-              await PreferencesManager().setString('tasks', taskEncode);
+              await PreferencesManager().setString(StorageKey.tasks, taskEncode);
               //await pref.setString("tasks", taskEncode);
               Navigator.pop(context, true);
               //Navigator.of(context).pop();

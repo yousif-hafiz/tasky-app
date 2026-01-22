@@ -1,6 +1,7 @@
 class StorageKey {
-  static final String username = "username";
-  static final String motivationQuote = "motivation_quote";
-  static final String tasks = "tasks";
-  static final String userImage = "user_image";
+  static const String username = "username";
+  static const String motivationQuote = "motivation_quote";
+  static const String tasks = "tasks";
+  static const String userImage = "user_image";
+  static const String theme = "theme";
 }

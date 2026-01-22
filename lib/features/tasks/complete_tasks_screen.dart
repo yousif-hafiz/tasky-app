@@ -29,7 +29,7 @@ class _CompleteTasksScreenState extends State<CompleteTasksScreen> {
   void _loadTask() async {
     setState(() => isLoading = true);
     try {
-      final finalTask = PreferencesManager().getString('tasks');
+      final finalTask = PreferencesManager().getString(StorageKey.tasks);
       if (finalTask != null) {
         final taskAfterDecode = jsonDecode(finalTask) as List<dynamic>;
         setState(() {
@@ -55,7 +55,7 @@ class _CompleteTasksScreenState extends State<CompleteTasksScreen> {
   _deleteTask(int? id) async {
     List<TaskModel> tasks = [];
     if (id == null) return;
-    final finalTask = PreferencesManager().getString('tasks');
+    final finalTask = PreferencesManager().getString(StorageKey.tasks);
     if (finalTask != null) {
       final taskAfterDecode = jsonDecode(finalTask) as List<dynamic>;
       tasks = taskAfterDecode
